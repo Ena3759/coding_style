@@ -1,43 +1,74 @@
+/*!
+    @file
+    @brief A file with a description of the methods of the Complex class
+*/
+
 #include <iostream>
 #include <cmath>
 #include "mycomplex.h"
 
 using namespace std;
 
+/*!
+    @brief class constructor
+    @param a_re Real  component
+    @param a_im Imaginary component
+*/
 Complex::Complex( double aRe, double aIm )
 {
     Re = aRe;
     Im = aIm;
 }
 
+/*!
+    @brief class constructor
+    @param complex_num Complex number
+*/
 Complex::Complex( const Complex& aRval )
 {
     Re = aRval.Re;
     Im = aRval.Im;
 }
 
+/*!
+    @brief Class Destructor
+*/
 Complex::~Complex()
 {
     Re = 0.0;
     Im = 0.0;
 }
 
+/*!
+    @brief Sets the real and imaginary part of a complex number
+*/
 void Complex::Set(  double aRe, double aIm )
 {
     Re = aRe;
     Im = aIm;
 }
 
+/*!
+    @brief Returns the module of a complex number
+    @return Module of a complex number
+*/
 Complex::operator double()
 {
     return abs();
 }
 
+/*!
+    @brief Returns the formula for finding the modulus of a complex number
+    @return The formula for finding the module
+*/
 double Complex::abs()
 {
     return sqrt( Re*Re + Im*Im );
 }
 
+/*!
+    @brief The sum of two complex numbers
+*/
 Complex Complex::operator+( const Complex& aRval )
 {
     Complex Result;
@@ -46,6 +77,9 @@ Complex Complex::operator+( const Complex& aRval )
     return Result;
 }
 
+/*!
+    @brief The difference of two complex numbers
+*/
 Complex Complex::operator-( const Complex& aRval )
 {
     Complex Result;
@@ -54,6 +88,9 @@ Complex Complex::operator-( const Complex& aRval )
     return Result;
 }
 
+/*!
+    @brief The sum of a complex number and a real
+*/
 Complex Complex::operator+( const double& aval )
 {
     Complex result;
@@ -62,13 +99,19 @@ Complex Complex::operator+( const double& aval )
     return result;
 }
 
+/*!
+    @brief The difference between a complex number and a real one
+*/
 Complex Complex::operator-( const double& aRval )
 {
-    Complex Result(*this);
+    Complex Result( *this );
     Result.Re = Re - aRval;
     return Result;
 }
 
+/*!
+    @brief The product of two complex numbers
+*/
 Complex Complex::operator*( const Complex& aRval )
 {
     Complex Result;
@@ -77,6 +120,9 @@ Complex Complex::operator*( const Complex& aRval )
     return Result;
 }
 
+/*!
+    @brief The product of a complex number and a real
+*/
 Complex Complex::operator*( const double& aRval )
 {
     Complex Result;
@@ -85,6 +131,9 @@ Complex Complex::operator*( const double& aRval )
     return Result;
 }
 
+/*!
+    @brief Quotient of a complex number and a real
+*/
 Complex Complex::operator/( const double& aRval )
 {   Complex Result;
     Result.Re = Re/aRval;
@@ -92,6 +141,9 @@ Complex Complex::operator/( const double& aRval )
     return Result;
 }
 
+/*!
+    @brief Overloading the sum operator of complex numbers
+*/
 Complex& Complex::operator+=( const Complex& arval )
 {
     Re += arval.Re;
@@ -99,6 +151,9 @@ Complex& Complex::operator+=( const Complex& arval )
     return *this;
 }
 
+/*!
+    @brief Overloading the difference operator of complex numbers
+*/
 Complex& Complex::operator-=( const Complex& aRval )
 {
     Re -= aRval.Re;
@@ -106,6 +161,9 @@ Complex& Complex::operator-=( const Complex& aRval )
     return *this;
 }
 
+/*!
+    @brief Overloading the product operator of complex numbers
+*/
 Complex& Complex::operator*=( const Complex& aRval )
 {
     double tmpRe = Re;
@@ -114,18 +172,27 @@ Complex& Complex::operator*=( const Complex& aRval )
     return *this;
 }
 
+/*!
+    @brief Overload of the sum operator of a complex number and a real
+*/
 Complex& Complex::operator+=( const double& aRval )
 {
     Re += aRval;
     return *this;
 }
 
+/*!
+    @brief Overload of the difference operator of a complex number and a real one
+*/
 Complex& Complex::operator-=( const double& aRval )
 {
     Re -= aRval;
     return *this;
 }
 
+/*!
+    @brief Overloading the operator of the product of a complex number and a real
+*/
 Complex& Complex::operator*=( const double& aRval )
 {
     Re *= aRval;
@@ -133,6 +200,9 @@ Complex& Complex::operator*=( const double& aRval )
     return *this;
 }
 
+/*!
+    @brief Overloading the operator of a particular complex number and indeed
+*/
 Complex& Complex::operator/=( const double& aRval )
 {
     Re /= aRval;
@@ -140,6 +210,9 @@ Complex& Complex::operator/=( const double& aRval )
     return *this;
 }
 
+/*!
+    @brief Class Constructor
+*/
 Complex& Complex::operator=( const Complex& aRval )
 {
     Re = aRval.Re;
@@ -147,6 +220,9 @@ Complex& Complex::operator=( const Complex& aRval )
     return *this;
 }
 
+/*!
+    @brief Class Constructor
+*/
 Complex& Complex::operator=( const double& aRval )
 {
     Re = aRval;
@@ -154,6 +230,9 @@ Complex& Complex::operator=( const double& aRval )
     return *this;
 }
 
+/*!
+    @brief Overloading the operator function >> to enter the Complex class
+*/
 istream& operator >> ( istream& stream, Complex& a )
 {
     char tmp[256];
@@ -161,6 +240,9 @@ istream& operator >> ( istream& stream, Complex& a )
     return stream;
 }
 
+/*!
+    @brief Overloading the << operator function to output the Complex class
+*/
 ostream& operator << ( ostream& stream, Complex& a )
 {
     stream << a.Re;
@@ -170,6 +252,9 @@ ostream& operator << ( ostream& stream, Complex& a )
     return stream;
 }
 
+/*!
+    @brief Overload +
+*/
 Complex operator+( const double& aLval, const Complex& aRval)
 {
     Complex Result;
@@ -178,14 +263,20 @@ Complex operator+( const double& aLval, const Complex& aRval)
     return Result;
 }
 
+/*!
+    @brief  Overload -
+*/
 Complex operator-( const double& aLval, const Complex& aRval )
 {
     Complex Result;
     Result.Re = aLval - aRval.Re;
-    Result.Im = -aRval.Im;
+    Result.Im = - aRval.Im;
     return Result;
 }
 
+/*!
+    @brief Overload *
+*/
 Complex operator*(const double& aLval, const Complex& a )
 {
     Complex r;

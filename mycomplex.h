@@ -1,12 +1,27 @@
+/*!
+    @file
+    @brief Header file of the Complex class
+*/
+
 #ifndef _MY_COMPLEX_H_
 #define _MY_COMPLEX_H_
 #include <iostream>
 
 using namespace std;
 
+/*!
+    @brief the class of a complex number
+*/
 class Complex
 {
+    /*!
+        @brief The real component
+    */
     double Re;
+
+    /*!
+        @brief Imaginary component
+    */
 	double Im;
 
 public:
