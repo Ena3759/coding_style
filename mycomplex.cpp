@@ -85,18 +85,18 @@ Complex Complex::operator-( const Complex& aRval )
     Complex Result;
     Result.Re = Re - aRval.Re;
     Result.Im = Im - aRval.Im;
-    return Result;
+    return ;
 }
 
 /*!
     @brief The sum of a complex number and a real
 */
-Complex Complex::operator+( const double& aval )
+Complex Complex::operator+( const double& aRval )
 {
     Complex result;
-    result.Re = Re + aval;
+    result.Re = Re + aRval;
     result.Im = Im;
-    return result;
+    return Result;
 }
 
 /*!
@@ -144,10 +144,10 @@ Complex Complex::operator/( const double& aRval )
 /*!
     @brief Overloading the sum operator of complex numbers
 */
-Complex& Complex::operator+=( const Complex& arval )
+Complex& Complex::operator+=( const Complex& aRval )
 {
-    Re += arval.Re;
-    Im += arval.Im;
+    Re += aRval.Re;
+    Im += aRval.Im;
     return *this;
 }
 
@@ -233,22 +233,22 @@ Complex& Complex::operator=( const double& aRval )
 /*!
     @brief Overloading the operator function >> to enter the Complex class
 */
-istream& operator >> ( istream& stream, Complex& a )
+istream& operator >> ( istream& stream, Complex& aRval )
 {
     char tmp[256];
-    stream >> a.Re >> a.Im >> tmp;
+    stream >> aRval.Re >> aRval.Im >> tmp;
     return stream;
 }
 
 /*!
     @brief Overloading the << operator function to output the Complex class
 */
-ostream& operator << ( ostream& stream, Complex& a )
+ostream& operator << ( ostream& stream, Complex& aRval )
 {
-    stream << a.Re;
-    if( !(a.Im < 0) )
+    stream << aRval.Re;
+    if( !(aRval.Im < 0) )
         stream << '+';
-    stream << a.Im << 'i';
+    stream << aRval.Im << 'i';
     return stream;
 }
 
@@ -277,10 +277,10 @@ Complex operator-( const double& aLval, const Complex& aRval )
 /*!
     @brief Overload *
 */
-Complex operator*(const double& aLval, const Complex& a )
+Complex operator*(const double& aLval, const Complex& aRval )
 {
-    Complex r;
-    r.Re = aLval * a.Re;
-    r.Im = aLval * a.Im;
-    return r;
+    Complex Result;
+    Result.Re = aLval * aRval.Re;
+    Result.Im = aLval * aRval.Im;
+    return Result;
 }
