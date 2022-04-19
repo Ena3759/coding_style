@@ -22,7 +22,7 @@ class Complex
     /*!
         @brief Imaginary component
     */
-	double Im;
+    double Im;
 
 public:
     Complex( double aRe=0, double aIm=0 );
