@@ -58,7 +58,7 @@ public:
     Complex& operator+=( const double& );
     Complex& operator-=( const double& );
     Complex& operator*=( const double& );
-    Complex& operato/=( const double & );
+    Complex& operator/=( const double & );
     Complex& operator=( const Complex& );
     Complex& operator=( const double& );
 };

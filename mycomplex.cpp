@@ -85,7 +85,7 @@ Complex Complex::operator-( const Complex& aRval )
     Complex Result;
     Result.Re = Re - aRval.Re;
     Result.Im = Im - aRval.Im;
-    return ;
+    return Result;
 }
 
 /*!
@@ -93,9 +93,9 @@ Complex Complex::operator-( const Complex& aRval )
 */
 Complex Complex::operator+( const double& aRval )
 {
-    Complex result;
-    result.Re = Re + aRval;
-    result.Im = Im;
+    Complex Result;
+    Result.Re = Re + aRval;
+    Result.Im = Im;
     return Result;
 }
 
